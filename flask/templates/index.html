@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upwork</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+          <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <script src="https://kit.fontawesome.com/18dd5346aa.js" ></script>
+
+    <script src="https://kit.fontawesome.com/18dd5346aa.js" ></script>
+
+
+
+  <style>
+
+
+      .dashed-box{
+      margin: 10px;
+      outline: dashed;
+      outline-color:#C0C0C0;
+      outline-offset: 10px;
+      padding: 5px;
+  }
+
+      .card{
+      background: lightblue;
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+  }
+
+      .card-img-top{
+      filter: grayscale(75%)
+  }
+
+      .choose{
+      border-radius: 50%;
+      height: 150px;
+      width: 150px;
+  }
+
+      .bloglink{
+      color: black;
+  }
+
+      .category-card .card .card-body font{
+      text-align: center;
+      align-items: center;
+  }
+
+      .category-card .card {
+      width: 250px;
+      height:300px;
+      border-radius: 15px;
+      padding: 2.5rem;
+      background: white;
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: end;
+      align-items: flex-end;
+      -webkit-transition: 0.4s ease-out;
+      transition: 0.4s ease-out;
+      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  }
+
+      .category-card .card:hover {
+      -webkit-transform: translateY(20px);
+      transform: translateY(20px);
+  }
+      .category-card .card:hover:before {
+      opacity: 1;
+  }
+
+      .category-card .card:hover .info {
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+  }
+
+      .category-card .card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      opacity: 0;
+  }
+	  	
+		.fa-info-circle {
+			color: black;
+			float: right;
+			position: absolute;
+			top: 25px;
+			right: 25px;
+			font-size: 1.2em;
+			border-color: black transparent transparent transparent;
+		}
+	
+
+
+  </style>
+
+</head>
+
+<body style="background-color:#E8E8E8">
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #292b2c;">
+		<a class="navbar-brand" style="color: teal; font-weight: bold;" href="#"><i class="fas fa-plane"></i>Airline Passenger Predictor.</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+
+				<li class="nav-item dropdown">
+					<a href="#" class="nav-link" style=" color: white;">Source code</a>
+				</li>
+				<li class="nav-item dropdown trainings">
+					<a href="register.php" class="nav-link" style=" color: white;">Nutrition value predictor</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a href="register.php" class="nav-link" style=" color: white;">About us</a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+
+	<!-- Login modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="index.php" method="post">
+					<div class="modal-body">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Username" name="username" required><a href="#" onclick="return false" data-toggle="tooltip" title="Username is your Email Id which you provided at the time of registeration"><i class="fas fa-info-circle"></i></a>
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Password" name="password" required>
+
+						</div>
+						<div style="text-align: right;">
+							<a href="forgot.php?forgot=<?php echo uniqid(true); ?>">Forget password?</a>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="submit" name="signin" class="btn btn-info">Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <!-- Login modal end -->
+
+    <div class="welcome-title">
+        <h1>The International Airline Passengers prediction problem.</h1>
+        <h1 class="green">Airline Passenger Predictor.&#8482;</h1>
+        
+        <h6>This is a problem where, given a year and a month, the task is to predict the number of international airline passengers in units of 1,000. The data ranges from January 1949 to December 1960, or 12 years, 
+            <br><br>with 144 observations.Prediction for next month is computed based on current month traffic.</h6>
+       
+
+        <br>
+  
+        <input type="number" id="input01" placeholder="Current month traffic!" class="form-control" style="width:200px"><br>
+   <button id="predict" class="cta-group__btn btn btn-primary mb-0 mr-10" onclick="return_predict()">
+          Predict
+        </button> ||         <a  class="cta-group__btn btn btn-primary mb-0 mr-10" href="ind"  >
+          Data analytics
+        </a>
+        <p id="out"></p>
+    </div>
+
+
+	<script>
+		
+			function return_predict()
+                        { 
+                      $(document).ready(function() {
+                             $.ajax({
+            type: 'POST',
+            url: '/predict',
+            data: document.getElementById("input01").value,
+            contentType: false,
+            cache: false,
+            processData: false,
+            async: true,
+            success: function (data) {
+                // Get and display the result
+                $('#out').text(' Predicted number of passenger on next month :  ' + data);
+                console.log('Success!');
+            }
+        });
+                       });
+                        }
+		
+                
+	</script>
+
+
+          
+</body>
+
+</html>
