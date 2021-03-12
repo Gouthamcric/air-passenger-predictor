@@ -3,10 +3,9 @@ from keras.models import load_model
 import numpy as np
 global model,graph
 import tensorflow as tf
-
 # load the pre-trained Keras model
-model=load_model("models/passenger_predict.h5")
-graph = tf.get_default_graph()
+
+graph = tf.compat.v1.get_default_graph()
 
 app = Flask(__name__)
 
@@ -22,6 +21,7 @@ def index2():
 def predict():
     global graph
     with graph.as_default():
+     model=load_model("models/passenger_predict.h5")
      p=request.get_data()
      from sklearn.preprocessing import MinMaxScaler
      import pandas as pd
